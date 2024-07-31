@@ -81,9 +81,10 @@ mysqlDump(){
 }
 
 mysqlDbImport(){
-  searchFileRes=$(ls ${backupPath} | grep "$arg1" | grep "$arg2")
+  searchFileRes=$(ls $backupPath | grep $arg1 | grep $arg2)
   if [ "${searchFileRes}" = "" ]; then
-    echo "找不到导入源文件:${searchFileRes}相关文件"
+    echo "找不到导入源文件"
+    echo "ls $backupPath | grep $arg1 | grep $arg2"
     exit 1
   fi
 
